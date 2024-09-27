@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos CSS</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <strong>Fundamentos CSS</strong>
+        <br>
+        <a href="index.html">Inicio</a> | <a href="primeiro-css.html">Primeiro CSS</a> | <a href="background-border.html">Background e Border</a> | <a href="margem-preenchimento.html">Margem e Preenchimento</a> | <a href="display-none-inline-block.html">Display: none, inline e block</a> | <a href="seletores-basicos.html">Seletores Básicos</a> | <a href="textos-fontes.html">Textos e Fontes</a> | <a href="unidades-medida.html">Unidades de Medida</a>
+    </header>
+    <hr>
+    <main>
+        <section>
+            <h1>Entendendo as cores no CSS</h1>
+            <hr>
+            <h2>Trabalhando com códigos RGB</h2>
+            <p>Significa Red, Green e Blue. O formato do código RGB é:</p>
+            <p>rgb(red, green, blue). Onde:</p>
+            <ul>
+                <li>red: é o valor da cor vermelha, de 0 a 255</li>
+                <li>green: é o valor da cor verde, de 0 a 255</li>
+                <li>blue: é o valor da cor azul, de 0 a 255</li>
+            </ul>
+
+            <h2>Trabalhando com códigos Hexadecimais</h2>
+            <p>Funciona com uma base 16, utilizando os números de 0 a 9 e as letras de A a F para representar os valores de 0 a 15. O formato do código é:</p>
+            <p>#RRGGBB. Onde:</p>
+            <ul>
+                <li>RR - Dois digitos Hexadecimais para o vermelho</li>
+                <li>GG - Dois digitos Hexadecimais para o verde</li>
+                <li>BB - Dois digitos Hexadecimais para o azul</li>
+            </ul>
+            <p>Exemlos</p>
+            <ul>
+                <li>#FF0000 - Vermelho</li>
+                <li>#00FF00 - Verde</li>
+                <li>#0000FF - Azul</li>
+            </ul>
+
+            <h2>Trabalhando com Códigos HSL</h2>
+            <p>O HSL significa "Hue, Saturation e Lightness", que traduzindo do inglês representam Matiz, Saturação e Luminosidade.</p>
+            <p>Permite selecionar uma cor a partis de:</p>
+            <ul>
+                <li>Matiz: é o tom puro da cor, variando de 0 a 360 graus em um círculo cromático. 0 representa o vermelho, 120 representa o verde e 240 representa o azul.</li>
+                <li>Saturação: representa a "pureza" ou intensidade da cor, variando de 0% a 100%. Quanto menor a saturação, mais "lavada" fica a cor.</li>
+                <li>Luminosidade: representa a quantidade de luz, variando de 0% (preto) a 100% (branco). 50% representa a cor pura sem escurecer ou clarear.</li>
+            </ul>
+            <p>O formato do códgo é:</p>
+            <p>hsl(hue, saturation, lightness). Onde:</p>
+            <ul>
+                <li>hue - Matiz, de 0 a 360</li>
+                <li>saturation - Saturação, de 0% a 100%</li>
+                <li>lightness - Luminosidade, de 0% a 100%</li>
+            </ul>
+        </section>
+        <hr>
+        <section>
+            <h1>Estilizando Textos e Fontes com CSS</h1>
+            <hr>
+            <h2>Propriedades de Texto</h2>
+            <p>Vamos começar vendo algumas das principais propriedades de texto:</p>
+
+            <h3>text-align</h3>
+            <p>Serve para alinhar horizontalmente o texto dentro de um elemento. Os valores mais comuns são:</p>
+            <ul>
+                <li>left: Alinha o texto à esquerda.</li>
+                <li>right: Alinha o texto à direita.</li>
+                <li>center: Centraliza o texto.</li>
+                <li>justify: Alinha o texto de forma justificada, distribuindo igualmente ao longo de toda a largura.</li>
+            </ul>
+
+            <h3>text-decoration</h3>
+            <p>Adiciona decorações visuais no texto, como linhas, sublinhados etc. Os valores mais utilizados são:</p>
+            <ul>
+                <li>none: Sem decoração (remove sublinhados de links).</li>
+                <li>underline: Sublinha o texto.</li>
+                <li>line-through: Um risco no meio do texto.</li>
+                <li>overline: Uma linha acima do texto.</li>
+            </ul>
+
+            <h3>text-transform</h3>
+            <p>Transforma o texto entre maiúsculas e minúsculas. Os valores disponíveis são:</p>
+            <ul>
+                <li>uppercase: Todo o texto ficará maiúsculo.</li>
+                <li>lowercase: Todo o texto ficará minúsculo.</li>
+                <li>capitalize: Primeiras letras maiúsculas.</li>
+            </ul>
+
+            <h2>Propriedades de Fonte</h2>
+            <h3>font-family</h3>
+            <p>Define a fonte a ser utilizada no texto. Você pode especificar o nome da fonte ou uma categoria genérica. Alguns nomes genéricos de fontes:</p>
+            <ul>
+                <li>serif - fontes com serifa, com pequenos traços nas extremidades.</li>
+                <li>sans-serif - fontes sem serifa.</li>
+                <li>monospace - fonte de largura fixa, ideal para códigos.</li>
+                <li>cursive - imita uma caligrafia.</li>
+                <li>fantasy - fontes decorativas, geralmente usadas em títulos.</li>
+            </ul>
+            <p class="code"">p {  font-family: Arial, Helvetica, sans-serif;}</p>
+
+            <h3>font-size</h3>
+            <p>Altera o tamanho do texto, podendo utilizar diversas unidades, como pixels, EM, ou porcentagem.</p>
+            <p class="code"">h1 {font-size:32px;}</p>
+
+            <h3>font-weight</h3>
+            <p>Define o peso(grossura) da fonte, aceitando palavras-chaves ou números de 100 a 900. Deixa os paragrafos em negrito. Outros pesos comuns são normal(400) e ligther (300).</p>
+            <p class="code"">p {font-weight: bold;}</p>
+
+            <h3>font-style</h3>
+            <p>Altera o estilo da fonte. Os valores disponíveis são:</p>
+            <ul>
+                <li>normal - texto normal</li>
+                <li>italic - texto em itálico</li>
+                <li>oblique - texto inclinado</li>
+            </ul>
+
+            <h2>Estilizando com Classes CSS</h2>
+            <p>Uma boa prática é criar classes CSS específicas para aplicar negrito, itálico e outros estilos, ao invés de usar as tags HTML diretamento:</p>
+            <p class="code">.bold {  font-weight: bold; }.italic {  font-style: italic;   }</p>
+            <p>Assim você pode utilizar da seguinte forma no HTML:</p>
+            <p class="code">&lt;p&gt;Texto normal &lt;span class="bold"&gt;texto negrito&lt;span&gt; mais texto...&lt;p&gt;</p>
+        </section>
+        <hr>
+        <section>
+            <h1>Unidades de Medida</h1>
+            <hr>
+            <h2>Pixel</h2>
+            <p>Um pixel representa um ponto único na tela. Em monitores, 1 pixel geralmente corresponde ao menor elemento que pode ser controlado naquele dispositivo.</p>
+            <p>Por exemplo, se temos uma div com <span style="font-family: monospace;">width: 10px</span>, ela terá uma largura fixa de 10 pixels, independente do tamanho ou zoom da tela.</p>
+            <p>Alguns casos onde os pixels são úteis:</p>
+            <ul>
+                <li><strong>Definir a largura de bordas:</strong> como as bordas geralmente são finas (1 a 3 pixels), os pixels permitem um controle preciso.</li>
+                <li><strong>Tamanhos de fontes pequenas:</strong> para textos auxiliares, usar tamanho em pixels (ex: 12px) permite consistência.</li>
+                <li><strong>Elementos de tamanho conhecido e fixo:</strong> em alguns casos, sabemos exatamente o tamanho que um elemento deve ter, para encapsular um conteúdo específico.</li>
+            </ul>
+
+            <h2>REM</h2>
+            <p>REM significa "Root EM" e é uma unidade relativamente recente que veio para simplificar o uso de medidas responsivas.</p>
+            <p>O REM baseia o tamanho do elemento no tamanho da fonte definida no elemento raiz (root) do documento HTML. Por exemplo:</p>
+            <p class="code">div {  font-size: 16px; /* Tamanho padrão da fonte nos navegadores */} <br>section {  width: 3rem; // 3 * 16px = 48px}</p>
+            <p>Como a fonte padrão nos navegadores geralmente é de 16px, 1rem corresponde a 16px. Então se usarmos 3rem, teremos 3 * 16 = 48px. A vantagem do REM é que, se o usuário alterar o tamanho de fonte padrão no navegador para facilitar a leitura, todo o layout se adaptará proporcionalmente.</p>
+            <p>Então se o root font-size passar para 20px, 3rem será equivalente a 60px. Isso faz do REM uma unidade adaptável. Por isso ela é muito utilizada para definir espaçamentos, tamanhos de container, larguras de colunas etc.</p>
+
+            <h3>Usando valores fracionados</h3>
+            <p>Também podemos usar valores fracionados em REM, como 1.5rem, 2.25rem etc. Nesses casos, a fração é calculada em cima do tamanho base de 16px (ou do root font size definido).</p>
+            <p>Então 2.5rem com root de 16px = 2.5 * 16 = 40px. Isso permite ajustar os tamanhos com mais precisão.</p>
+
+            <h2>EM</h2>
+            <p>A unidade EM funciona de forma muito parecida com o REM, mas ao invés de se basear no font size raiz, o EM utiliza como referência o font size do próprio elemento. Exemplo:</p>
+            <p class="code">section   font-size: 16px; <br>button {  padding: 1em; // 1 * 16px do font-size do section} </p>
+            <p>Novamente, se o font-size do elemento "pai" for alterado, o em se adapta automaticamente.</p>
+            <p>Isso faz do EM uma unidade útil quando queremos que o elemento filho tenha um tamanho proporcional ao elemento pai. Como em botões com padding relativo ao text size, por exemplo.</p>
+
+            <h2>Porcentagem</h2>
+            <p>A unidade porcentagem (%) em CSS é relativa ao elemento pai, similar ao EM. A diferença é que a porcentagem se baseia no width (largura) ou height (altura) do elemento pai, enquanto o EM usa o font size. Exemplo:</p>
+            <p class="code">main   width: 800px;<br>section   width: 50%; // 50% de 800px = 400px<br>parent   height: 100px;  <br>el {  height: 25% // 25% de 100px = 25px  }</p>
+            <p>Novamente vemos que a porcentagem cria uma proporcionalidade entre elementos pai e filho: se redimensionamos o elemento pai, os elementos filhos mudarão proporcionalmente.</p>
+
+            <h2>Viewport: VW e VH</h2>
+            <p>As unidades VW e VH são relativas à viewport, que é a área visível da página no navegador.</p>
+            <ul>
+                <li>VW = Viewport Width</li>
+                <li>VH = Viewport Height</li>
+            </ul>
+            <p>1VW representa 1% da largura total da viewport.1VH representa 1% da altura total da viewport. Exemplo:</p>
+            <p class="code">div {  width: 50vw; // 50% da largura da viewport  height: 75vh; // 75% da altura da viewport  }</p>
+            <p>Essas unidades são ideais para criar elementos com largura ou altura relativa ao tamanho da janela do navegador, o que é útil especialmente para layouts <strong>responsivos</strong>. Alguns casos de uso:</p>
+            <ul>
+                <li>Hero images e banners que ocupam toda a viewport em altura</li>
+                <li>Layouts com colunas que devem manter proporção em diferentes resoluções</li>
+                <li>Elementos grandes que precisam limitar seu tamanho à viewport (imagens, vídeos etc)</li>
+            </ul>
+
+            <h2>Resumindo</h2>
+            <ul>
+                <li><strong>Pixels:</strong> controle preciso para tamanhos fixos e pequenos elementos</li>
+                <li><strong>REM:</strong> tamanhos proporcionais ao root, ideal para espaçamentos e layouts responsivos</li>
+                <li><strong>EM:</strong> tamanhos relativos e proporcionais ao elemento pai</li>
+                <li><strong>Porcentagem:</strong> proporcional ao width/height do elemento pai</li>
+                <li><strong>VW | VH:</strong> proporcional à largura e altura da viewport</li>
+            </ul>
+
+        </section>
+
+
+    </main>
+</body>
+</html>
