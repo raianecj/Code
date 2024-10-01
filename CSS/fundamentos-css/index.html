@@ -11,7 +11,7 @@
     <header>
         <strong>Fundamentos CSS</strong>
         <br>
-        <a href="index.html">Inicio</a> | <a href="primeiro-css.html">Primeiro CSS</a> | <a href="background-border.html">Background e Border</a> | <a href="margem-preenchimento.html">Margem e Preenchimento</a> | <a href="display-none-inline-block.html">Display: none, inline e block</a> | <a href="seletores-basicos.html">Seletores Básicos</a> | <a href="textos-fontes.html">Textos e Fontes</a> | <a href="unidades-medida.html">Unidades de Medida</a>
+        <a href="index.html">Inicio</a> | <a href="primeiro-css.html">Primeiro CSS</a> | <a href="background-border.html">Background e Border</a> | <a href="margem-preenchimento.html">Margem e Preenchimento</a> | <a href="display-none-inline-block.html">Display: none, inline e block</a> | <a href="seletores-basicos.html">Seletores Básicos</a> | <a href="textos-fontes.html">Textos e Fontes</a> | <a href="unidades-medida.html">Unidades de Medida</a> | <a href="heranca-css.html">Herança no CSS</a>
     </header>
     <hr>
     <main>
@@ -184,6 +184,65 @@
                 <li><strong>Porcentagem:</strong> proporcional ao width/height do elemento pai</li>
                 <li><strong>VW | VH:</strong> proporcional à largura e altura da viewport</li>
             </ul>
+
+        </section>
+        <section>
+            <h1>Heranças no CSS</h1>
+            <p>A herança no CSS permite que valores de determinadas propriedades que são aplicadas a um elemento, sejam herdadas pelos elementos filhos. Ou seja, os elementos filhos acabam assumindo algumas características de estilo definidas no elemento pai.</p>
+            <p>Por exemplo, se definirmos uma cor de fonte vermelha para o elemento <span style="font-family: monospace;" >body</span>, todos os textos contidos nele automaticamente ficarão com a cor vermelha, mesmo que não tenhamos aplicado a propriedade color diretamente a eles. Isso acontece porque a propriedade color é herdada do elemento pai <span style="font-family: monospace;">body</span> para os filhos.</p>
+
+            <h2>Propriedades herdadas no CSS</h2>
+            <ul>
+                <li>color - cor do texto</li>
+                <li>font-family - família de fonte do texto</li>
+                <li>font-size - tamanho da fonte do texto</li>
+                <li>line-height - altura da linha do texto</li>
+                <li>text-align - alinhamento do texto</li>
+            </ul>
+
+            <p>Ou seja, de forma geral as propriedades relacionadas a fontes e textos são herdadas no CSS.</p>
+            <p>Confira o exemplo <a href="heranca-css.html">aqui</a>.</p>
+        </section>
+
+        <section>
+            <h1>Especificidade no CSS</h1>
+            <p>A especificidade CSS determina a precedência com que as regras de estilo são aplicadas num elemento HTML.</p>
+            <p>Ela define basincamente "o quão específico" é o seletor CSS utilizado em uma regra de estilização. Exemplo:</p>
+            <p class="code">/* Menos específico */ <br> p {  color: blue; } <br>/* Mais específico */ <br> .main-text {  color: red;} <br>/* Ainda mais específico */ <br>#unique-element{  color: yellow; }</p>
+            <p>No exemplo acima, a regra com o ID #unique-element tem maior especificidade e será aplicada caso haja conflito com as outras duas.</p>
+            <h2>Especificidade e ordem de aplicação</h2>
+            <p>De maneira geral, os estilos CSS são aplicados em uma ordem de cascata, de acordo com sua posição no arquivo CSS ou no documento HTML. Porém, com a especificidade, é possível "quebrar" essa ordem e fazer com que regras definidas anteriormente sejam sobrepostas por regras especificadas depois.</p>
+            <p>Alguns pontos importantes sobre a aplicação das regras:</p>
+            <ul>
+                <li>Estilos inline (direto no elemento HTML) sempre ganham dos estilos nos arquivos CSS externos, independentemente da ordem.</li>
+                <li>Estilos nos arquivos externos são aplicados por último e podem ser sobrescritos pelos outros.</li>
+                <li>Cada tipo de seletor CSS tem um nível diferente de especificidade, conforme veremos a seguir.</li>
+                <li>Múltiplos seletores somam especificidades. Um grupo de seletores tem especificidade maior.</li>
+                <li>Seletores com a mesma especificidade seguem a ordem em que aparecem no código fonte.</li>
+            </ul>
+
+            <h2>Especificidade dos seletores CSS</h2>
+            <h3>Seletor universal</h3>
+            <p>O seletor universal * se aplica a todos os elementos do documento, mas tem especificidade muito baixa. Qualquer outro seletor consegue sobrepor uma regra com o seletor universal.</p>
+            
+            <h3>Seletores de tipo</h3>
+            <p>São os seletores que referenciam elementos HTML por seu nome, como h1, p, div etc.</p>
+            <p>Têm especificidade maior que os seletores universais, mas menor que seletores de classe e ID.</p>
+            <p class="code">h1 {  color: green; } <br> .main {  color: red; /* Ganha do h1 */}</p>
+
+            <h3>Seletores de classe e atributo</h3>
+            <p>São qualquer seletor que utiliza um ponto . para selecionar classes ou colchetes [] para selecionar atributos.</p>
+            <p class="code">.main {  color: green;} <br> [title] {  color: red;  /* Igual especificidade */}</p>
+            <p>Esses seletores têm maior especificidade que seletores de tipo. Uma classe ou atributo vai sempre ganhar de um seletor de elemento.</p>
+            
+            <h3>ID selector</h3>
+            <p>O seletor de ID (#element) tem a maior especificidade entre seletores simples. Como um ID deve ser único em uma página, ele é muito específico e ganha das outras regras.</p>
+            <p class="code">#unique {  color: green; }h1 {  color: red; /* Perde para o #unique */}</p>
+
+            <h3>Agrupando seletores</h3>
+            <p>Você também pode combinar seletores para aumentar a especificidade. Cada seletor adicional na regra soma especificidade. Por exemplo:</p>
+            <p class="code">/* Especificidade maior */ <br> body .content .text {   color: red;} <br> /* Perde da regra acima */ <br>.text { color: blue; }</p>
+            <p>O primeiro grupo combina os seletores body, classe .content e classe .text, tornando-o mais específico e dando prioridade mesmo vindo antes.</p>
 
         </section>
 
