@@ -212,6 +212,25 @@ footer {
         width: 12rem;
     }
 }
+/* Personalizar a largura e cor da barra */
+::-webkit-scrollbar {
+    width: 10px; /* Diminui a largura */
+    height: 3px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);; /* Cor do track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-background);; /* Cor da thumb */
+    border-radius: 10px; /* Arredondar */
+    border: 2px solid var(--color-blue); /* Adicionar borda */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blue); /* Cor ao passar o mouse */
+  }
 
 /* Ajustes para telas menores que 480px (celulares) */
 @media (max-width: 480px) {
