@@ -243,7 +243,79 @@
             <p>Você também pode combinar seletores para aumentar a especificidade. Cada seletor adicional na regra soma especificidade. Por exemplo:</p>
             <p class="code">/* Especificidade maior */ <br> body .content .text {   color: red;} <br> /* Perde da regra acima */ <br>.text { color: blue; }</p>
             <p>O primeiro grupo combina os seletores body, classe .content e classe .text, tornando-o mais específico e dando prioridade mesmo vindo antes.</p>
+        </section>
+        <section>
+            <h1>Seletores Avançados do CSS</h1>
+            <p>O CSS possui diversos seletores que permitem estilizar elementos HTML de forma avançada e específica. Os mais úteis são:</p>
+            <ul>
+                <li>nth-child</li>
+                <li>nth-of-type</li>
+                <li>hover</li>
+                <li>focus</li>
+                <li>first-child</li>
+                <li>last-child</li>
+                <li>not</li>
+                <li>before</li>
+                <li>after</li>
+            </ul>
+        </section>
+        <section>
+            <h1>Variáveis no CSS</h1>
+            <p>As variáveis CSS permitem armazenar valores que podem ser reutilizados em todo o código CSS. Isso traz muitos benefícios, como:</p>
+            <ul>
+                <li>Centralizar valores que são utilizados com frequência, como cores, espaçamentos, tamanhos de fonte etc;</li>
+                <li>Facilitar a alteração global desses valores em todo o projeto;</li>
+                <li>Tornar o código mais legível e fácil de manter.</li>
+            </ul>
 
+            <h2>Declarando variáveis</h2>
+            <p>Para declarar uma variável utilizamos a seguinte sintaxe:</p>
+            <p class="code">--nome-da-variavel: valor;</p>
+            <p>Onde:</p>
+            <ul>
+                <li>-- : É obrigatório para indicar que estamos declarando uma variável</li>
+                <li>nome-da-variavel: Um nome para identificar a variável. Deve ser escrito em letras minúsculas e com hífens no lugar de espaços. Não utilize caracteres especiais.</li>
+                <li>valor: O valor que desejamos armazenar na variável. Pode ser qualquer valor CSS válido como cores, medidas, porcentagens etc.valor: O valor que desejamos armazenar na variável. Pode ser qualquer valor CSS válido como cores, medidas, porcentagens etc.</li>
+                <li>;: O ponto e vírgula no final para finalizar a declaração.</li>
+            </ul>
+            <p>Por exemplo, para armazenar uma cor que utilizaremos frequentemente:</p>
+            <p class="code"> --cor-principal: #5533cc;</p>
+            <p>Para armazenar um tamanho de fonte padrão:</p>
+            <p class="code">--tamanho-padrao: 16px;</p>
+            <p>Para armazenar um espaçamentos que será reutilizado:</p>
+            <p class="code">--espacamento-pequeno: .5rem;</p>
+
+            <h2>Onde declarar as variáveis</h2>
+            <p>Geralmente declaramos as variáveis CSS no seletor :root. O :root se refere ao elemento raiz do documento HTML e é um bom lugar para centralizar as variáveis que serão utilizadas globalmente.</p>
+            <p class="code">:root  { <br> --cor-principal: #5533cc; <br> --tamanho-padrao: 16px; <br>  --espacamento-pequeno: .5rem; <br> }</p>
+            <p>Declarar no :root faz com que as variáveis fiquem disponíveis globalmente para todo o CSS.</p>
+
+            <h2>Utilizando variáveis</h2>
+            <p>Para utilizar o valor armazenado em uma variável, utilizamos a função <span style="font-family: monospace;">var()</span>:</p>
+            <p class="code">elemento { <br> propriedade: var(--nome-da-variavel); <br> }</p>
+            <p>Por exemplo, para aplicar a cor principal que armazenamos:</p>
+            <p class="code">h1 {  color: var(--cor-principal); }</p>
+            <p>Para utilizar o tamanho de fonte padrão:</p>
+            <p class="code">p {  font-size: var(--tamanho-padrao);}</p>
+            <p>E o espaçamento pequeno:</p>
+            <p class="code">button {  margin: var(--espacamento-pequeno); }</p>
+            <p>A função var() irá substituir a chamada pela variável pelo valor armazenado. Facilitando reutilizar os valores e modificá-los globalmente.</p>
+
+            <h2>Boas práticas</h2>
+            <ul>
+                <li>Utilize nomes descritivos e intuitivos para as variáveis;</li>
+                <li>Centralize as declarações de variáveis globais no :root;</li>
+                <li>Utilize padrões nos nomes, como prefixos indicando o tipo de valor que está armazenado;</li>
+                <li>Evite nomes muito genéricos como "valor", "numero", etc;</li>
+                <li>Evite caracteres especiais, espaços, acentuação etc. Utilize apenas letras minúsculas, números e hífens;</li>
+                <li>Declare as variáveis no topo dos arquivos CSS antes de começar a utilizá-las.</li>
+            </ul>
+
+            <h2>Sobrescrevendo variáveis</h2>
+            <p>Também é possível sobrescrever o valor de uma variável em contextos mais específicos:</p>
+            <p class="code">:root { <br> --cor-principal: #5533cc; }.botao   --cor-principal: #333; <br> } </p>
+            <p>No exemplo acima, a variável <span style="font-family: monospace;">--cor-principal</span> terá o valor <span style="font-family: monospace;">#5533cc</span> globalmente. Porém no contexto dentro do seletor .botao ela será sobrescrita com o valor #333.</p>
+            <p>Isso permite reaproveitar as variáveis globais mas alterando conforme a necessidade de elementos específicos.</p>
         </section>
 
 
